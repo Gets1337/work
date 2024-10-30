@@ -25,12 +25,12 @@ app.get('/', (req, res) => {
 });
 
 app.put('/:num', jsonInterpr, (req,res) => {
-    // Редактирование 
+    // Редактирование
     const num = req.params.num;
     let buffer = req.body;
     const index = repo.findIndex((item) => item.number == num);
     const ord = repo[index];
-    if (!buffer) res.sendStatus(404);
+    if (!buffer) return res.sendStatus(404);
     if (buffer.kind !== undefined) {
         ord.kind = buffer.kind;
     }
@@ -52,5 +52,13 @@ app.put('/:num', jsonInterpr, (req,res) => {
 res.send(ord);
 });
 
+app.delete('/:num', (req, res) => {
+    // Удаление
+    const num = req.params.num;
+    const index = repo.findIndex((item) => item.number == num);
+    if (index === -1) return res.sendStatus(404);
+    repo.splice(index, 1);
+    res.sendStatus(204)
+});
 
 app.listen(3000);
