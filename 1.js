@@ -30,7 +30,7 @@ let repo = [{
     eat: 'тефтельки'
 }];
 
-app.post('/', (req, res) => {
+app.post('/', jsonInterpr, (req, res) => {
     // Создание
     let buffer = req.body;
     repo.push(buffer);
