@@ -10,6 +10,24 @@ let repo = [{
     limbCount: 5,
     air: 'травкой',
     eat: 'энергетик'
+},
+{
+    number: 2,
+    kind: 'человекоподобныйрак',
+    name: 'Валеря',
+    weight: '100',
+    limbCount: 5,
+    air: 'травкой',
+    eat: 'червячки'
+},
+{
+    number: 3,
+    kind: 'робот',
+    name: 'Витя',
+    weight: '20',
+    limbCount: 5,
+    air: 'воздухом',
+    eat: 'тефтельки'
 }];
 
 app.post('/', (req, res) => {
